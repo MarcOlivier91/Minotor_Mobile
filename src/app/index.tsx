@@ -31,26 +31,27 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: "#E4B74C",
-    padding: 10,
+    padding: 14,
     borderRadius: 16,
     marginBottom: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    width: "50%",
+    alignSelf: "center",
 
   },
   registerButton: {
     backgroundColor: "#222",
-    padding: 10,
+    padding: 14,
     borderRadius: 16,
     marginBottom: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    width: "50%",
+    alignSelf: "center",
 
   },
   textButton: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
+    textAlign: "center",
   }
 
 });

@@ -29,8 +29,10 @@ const styles = StyleSheet.create({
     input: {
         borderRadius: 16,
         borderWidth: 1.5,
-        padding: 16,
-        margin: 30,
+        padding: 20,
+        marginBottom: 30,
+        marginVertical: 10,
+        marginHorizontal: 40,
     },
     heroText: {
         fontSize: 40,
@@ -49,11 +51,14 @@ const styles = StyleSheet.create({
     padding: 14,
     borderRadius: 16,
     marginBottom: 20,
+    width: "50%",
+    alignSelf: "center",
     },
     
     textButton: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
+    textAlign: "center",
     },
 });
