@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   loginButton: {
     backgroundColor: "#E4B74C",
     padding: 10,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 20,
     paddingVertical: 10,
     paddingHorizontal: 12,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   registerButton: {
     backgroundColor: "#222",
     padding: 10,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 20,
     paddingVertical: 10,
     paddingHorizontal: 12,

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     input: {
-        borderRadius: 8,
+        borderRadius: 16,
         borderWidth: 1.5,
         padding: 16,
         margin: 30,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     loginButton: {
     backgroundColor: "#E4B74C",
     padding: 14,
-    borderRadius: 8,
+    borderRadius: 16,
     marginBottom: 20,
     },
     
