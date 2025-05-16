@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Index() {
