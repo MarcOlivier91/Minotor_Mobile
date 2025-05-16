@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   textButton: {
     color: "#fff",
     fontSize: 18,
+    fontWeight: "bold",
   }
 
 });
