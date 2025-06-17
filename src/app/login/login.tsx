@@ -1,8 +1,21 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
+import React, { useState } from "react";
 
 export default function Login() {
+
+        // State variable to hold the password
+    const [password, setPassword] = useState('');
+
+    // State variable to track password visibility
+    const [showPassword, setShowPassword] = useState(false);
+
+    // Function to toggle the password visibility state
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+    
     return (
         <SafeAreaProvider style={styles.container}>
             <KeyboardAvoidingView enabled behavior={'padding'} keyboardVerticalOffset={100}>
@@ -10,7 +23,7 @@ export default function Login() {
                 <TextInput style={styles.input} placeholder="Email"/>
                 <TextInput style={styles.input} placeholder="Mot de Passe"/>
                 <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.textButton}>Se connecter</Text>
+                    <Text style={styles.textButton} onPress={() => router.navigate('../menu/mainmenu')}>Se connecter</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => router.navigate('./forgottenPassword')}>

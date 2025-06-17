@@ -6,6 +6,8 @@ export default function mainMenu() {
     return (
         <SafeAreaProvider>
             <Text>Menu Principal</Text>
+            <Text>Bienvenue dans la page principale</Text>
+
         </SafeAreaProvider>
     )
 }

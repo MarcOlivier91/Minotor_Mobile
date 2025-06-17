@@ -1,5 +1,6 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from "react-native";
+import { router } from "expo-router";
 
 
 export default function ForgottenPassword() {
@@ -11,7 +12,7 @@ export default function ForgottenPassword() {
             <TextInput style={styles.input} placeholder="Email" />
 
             <TouchableOpacity style={styles.sendRequestButton} onPress={() => {}}>
-                <Text style={styles.textButton}>Recevoir le lien</Text>
+                <Text style={styles.textButton} onPress={() => router.navigate('./pwdMailSent')}>Recevoir le lien</Text>
             </TouchableOpacity>
         </SafeAreaProvider>
     )
