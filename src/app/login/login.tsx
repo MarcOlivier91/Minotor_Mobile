@@ -1,12 +1,16 @@
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from "react-native";
-import { router } from "expo-router";
 import React, { useState } from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, View } from "react-native";
+import { router } from "expo-router";
 
 export default function Login() {
 
         // State variable to hold the password
     const [password, setPassword] = useState('');
+
+    const [username, setUsername] = useState('');
+    // State variable to hold the username
 
     // State variable to track password visibility
     const [showPassword, setShowPassword] = useState(false);
@@ -17,11 +21,29 @@ export default function Login() {
     };
     
     return (
-        <SafeAreaProvider style={styles.container}>
+        <SafeAreaProvider style={styles.mainContainer}>
             <KeyboardAvoidingView enabled behavior={'padding'} keyboardVerticalOffset={100}>
                 <Text style={styles.heroText}>Connectez-vous</Text>
-                <TextInput style={styles.input} placeholder="Email"/>
-                <TextInput style={styles.input} placeholder="Mot de Passe"/>
+                <View style={styles.inputContainer}>
+                    <TextInput 
+                    placeholder="Pseudonyme"
+                    value={username}/>
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        secureTextEntry={!showPassword}
+                        value={password}
+                        onChangeText={setPassword} 
+                        placeholder="Mot de Passe"/>
+                    <MaterialCommunityIcons
+                        name={showPassword ? 'eye-off' : 'eye'}
+                        size={24}
+                        color="#aaa"
+                        onPress={toggleShowPassword}
+                    />
+                </View>
+
                 <TouchableOpacity style={styles.loginButton}>
                     <Text style={styles.textButton} onPress={() => router.navigate('../menu/mainmenu')}>Se connecter</Text>
                 </TouchableOpacity>
@@ -35,17 +57,9 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    mainContainer: {
         flex: 1,
         justifyContent: "center",
-    },
-    input: {
-        borderRadius: 16,
-        borderWidth: 1.5,
-        padding: 20,
-        marginBottom: 30,
-        marginVertical: 10,
-        marginHorizontal: 40,
     },
     heroText: {
         fontSize: 40,
@@ -73,5 +87,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
+    },
+
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f3f3f3',
+        borderRadius: 8,
+        borderWidth: 1.5,
+        padding: 10,
+        marginVertical: 10,
+        marginHorizontal: 40,
+        marginBottom: 20,
+
     },
 });
