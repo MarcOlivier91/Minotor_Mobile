@@ -47,8 +47,8 @@ export default function Login() {
                     />
                 </View>
 
-                <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.textButton} onPress={() => router.navigate('../mainpage/page')}>Se connecter</Text>
+                <TouchableOpacity style={styles.loginButton} onPress={() => router.navigate('../deliveries/page')}>
+                    <Text style={styles.textButton} >Se connecter</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => router.navigate('./forgottenPassword')}>

@@ -3,7 +3,7 @@ import { Text } from "react-native";
 
 
 
-export default function pwdMailSent() {
+export default function PwdMailSent() {
   return (
     <SafeAreaProvider>
       <Text>Un mail a bien été envoyé</Text>
