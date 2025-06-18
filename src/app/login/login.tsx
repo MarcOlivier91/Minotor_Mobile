@@ -25,17 +25,20 @@ export default function Login() {
             <KeyboardAvoidingView enabled behavior={'padding'} keyboardVerticalOffset={100}>
                 <Text style={styles.heroText}>Connectez-vous</Text>
                 <View style={styles.inputContainer}>
-                    <TextInput 
+                    <TextInput style={styles.textInput}
                     placeholder="Pseudonyme"
-                    value={username}/>
+                    value={username}
+                    onChangeText={setUsername}
+                    autoCapitalize="none"/>
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <TextInput
+                    <TextInput style={styles.textInput}
                         secureTextEntry={!showPassword}
                         value={password}
                         onChangeText={setPassword} 
                         placeholder="Mot de Passe"/>
+                        
                     <MaterialCommunityIcons
                         name={showPassword ? 'eye-off' : 'eye'}
                         size={24}
@@ -45,7 +48,7 @@ export default function Login() {
                 </View>
 
                 <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.textButton} onPress={() => router.navigate('../menu/mainmenu')}>Se connecter</Text>
+                    <Text style={styles.textButton} onPress={() => router.navigate('../mainpage/page')}>Se connecter</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => router.navigate('./forgottenPassword')}>
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         backgroundColor: '#f3f3f3',
         borderRadius: 8,
         borderWidth: 1.5,
@@ -100,6 +103,9 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         marginHorizontal: 40,
         marginBottom: 20,
-
     },
+
+    textInput: {
+        fontSize: 16,
+    }
 });
