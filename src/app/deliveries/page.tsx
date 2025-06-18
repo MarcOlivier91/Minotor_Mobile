@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import { router } from "expo-router";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import DeliveryCard from "../../components/DeliveryCard";
+import livraisonData from "./propData";
 
 export default function MainMenu() {
   return (
@@ -16,8 +17,11 @@ export default function MainMenu() {
       </View>
 
       <Text style={styles.headerText}>Livraisons Précédentes</Text>
-
-      <DeliveryCard />
+      <DeliveryCard
+        deliveryId={987514}
+        entreprise={"MarcoMands"}
+        status={"Livrée"}
+      />
     </SafeAreaProvider>
   );
 }
