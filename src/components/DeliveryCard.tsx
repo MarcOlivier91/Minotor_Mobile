@@ -6,6 +6,7 @@ interface DeliveryCardProps {
   deliveryId: number | string;
   entreprise: string;
   status: string;
+  date: string;
 }
 
 export default function DeliveryCard(props: DeliveryCardProps) {
@@ -18,6 +19,7 @@ export default function DeliveryCard(props: DeliveryCardProps) {
           <Text>Livraison #{props.deliveryId}</Text>
           <Text>{props.entreprise}</Text>
           <Text>{props.status}</Text>
+          <Text>{props.date}</Text>
         </View>
       </TouchableOpacity>
     </View>

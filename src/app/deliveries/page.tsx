@@ -21,6 +21,7 @@ export default function MainMenu() {
         deliveryId={987514}
         entreprise={"MarcoMands"}
         status={"Livrée"}
+        date={"12-12-2023"}
       />
     </SafeAreaProvider>
   );
