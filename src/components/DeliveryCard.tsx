@@ -12,7 +12,6 @@ interface DeliveryCardProps {
 export default function DeliveryCard(props: DeliveryCardProps) {
   return (
     <View>
-      <Text> Ceci est un compenent pour les livraisons</Text>
       <TouchableOpacity style={styles.card}>
         <View>
           <MaterialCommunityIcons name="truck" size={24} />

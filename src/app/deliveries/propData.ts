@@ -22,6 +22,22 @@ const livraisonData: Livraison[] = [
     status: "Annulée",
     date: "5-2-2023",
   },
+
+  {
+    id: "4",
+    deliveryId: "98154",
+    entreprise: "Wassimacaron",
+    status: "Annulée",
+    date: "5-2-2023",
+  },
+
+  {
+    id: "3",
+    deliveryId: "98154",
+    entreprise: "Wassimacaron",
+    status: "Annulée",
+    date: "5-2-2023",
+  },
 ];
 
 export default livraisonData;

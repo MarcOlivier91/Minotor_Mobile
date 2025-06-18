@@ -1,5 +1,11 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  ScrollView,
+} from "react-native";
 import { router } from "expo-router";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import DeliveryCard from "../../components/DeliveryCard";
@@ -8,21 +14,24 @@ import livraisonData from "./propData";
 export default function MainMenu() {
   return (
     <SafeAreaProvider>
-      <View style={styles.inputContainer}>
-        <MaterialCommunityIcons name="plus" size={24} color={"#fff"} />
-
-        <TouchableOpacity onPress={() => router.navigate("./newDelivery")}>
-          <Text style={styles.newDeliveryText}>Nouvelle Livraison</Text>
-        </TouchableOpacity>
-      </View>
-
-      <Text style={styles.headerText}>Livraisons Précédentes</Text>
-      <DeliveryCard
-        deliveryId={987514}
-        entreprise={"MarcoMands"}
-        status={"Livrée"}
-        date={"12-12-2023"}
-      />
+      <ScrollView>
+        <View style={styles.inputContainer}>
+          <MaterialCommunityIcons name="plus" size={24} color={"#fff"} />
+          <TouchableOpacity onPress={() => router.navigate("./newDelivery")}>
+            <Text style={styles.newDeliveryText}>Nouvelle Livraison</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.headerText}>Livraisons Précédentes</Text>
+        {livraisonData.map((livraison) => (
+          <DeliveryCard
+            key={livraison.id}
+            deliveryId={livraison.deliveryId}
+            entreprise={livraison.entreprise}
+            status={livraison.status}
+            date={livraison.date}
+          />
+        ))}
+      </ScrollView>
     </SafeAreaProvider>
   );
 }
