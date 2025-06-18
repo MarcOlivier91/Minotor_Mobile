@@ -12,14 +12,20 @@ export default function Index() {
       }}
     >
       <Text style={styles.text}>Minot&apos;Scan</Text>
-      <TouchableOpacity style={styles.loginButton}  onPress={() => router.navigate('./login/login')}>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={() => router.navigate("./login/login")}
+      >
         <Text style={styles.textButton}>Se Connecter</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.registerButton} onPress={() => router.navigate('./register/register')}>
+      <TouchableOpacity
+        style={styles.registerButton}
+        onPress={() => router.navigate("./register/register")}
+      >
         <Text style={styles.textButton}>Créer un compte</Text>
       </TouchableOpacity>
-</SafeAreaProvider>
+    </SafeAreaProvider>
   );
 }
 
@@ -36,7 +42,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: "50%",
     alignSelf: "center",
-
   },
   registerButton: {
     backgroundColor: "#222",
@@ -45,13 +50,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: "50%",
     alignSelf: "center",
-
   },
   textButton: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
-  }
-
+  },
 });
