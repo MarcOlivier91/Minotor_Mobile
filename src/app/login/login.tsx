@@ -10,6 +10,7 @@ import {
   View,
 } from "react-native";
 import { router } from "expo-router";
+import ActionButton from "@/src/components/ActionButton";
 
 export default function Login() {
   // State variable to hold the password
@@ -61,12 +62,10 @@ export default function Login() {
           />
         </View>
 
-        <TouchableOpacity
-          style={styles.loginButton}
+        <ActionButton
+          text="Se Connecter"
           onPress={() => router.navigate("../deliveries/page")}
-        >
-          <Text style={styles.textButton}>Se connecter</Text>
-        </TouchableOpacity>
+        />
 
         <TouchableOpacity
           onPress={() => router.navigate("./forgottenPassword")}
