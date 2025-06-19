@@ -6,7 +6,7 @@ type Livraison = {
   date: string;
 };
 
-const livraisonData: Livraison[] = [
+const LivraisonData: Livraison[] = [
   {
     id: "1",
     deliveryId: "12345",
@@ -25,19 +25,19 @@ const livraisonData: Livraison[] = [
 
   {
     id: "4",
-    deliveryId: "98154",
-    entreprise: "Wassimacaron",
-    status: "Annulée",
+    deliveryId: "98014",
+    entreprise: "NewCompany",
+    status: "Livrée",
     date: "5-2-2023",
   },
 
   {
     id: "3",
     deliveryId: "98154",
-    entreprise: "Wassimacaron",
+    entreprise: "AlgerianCompany",
     status: "Annulée",
-    date: "5-2-2023",
+    date: "8-7-2023",
   },
 ];
 
-export default livraisonData;
+export default LivraisonData;
