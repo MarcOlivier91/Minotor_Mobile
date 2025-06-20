@@ -1,6 +1,9 @@
+import ActionButton from "@/src/components/ActionButton";
+import IconActionButton from "@/src/components/IconActionButton";
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
+import { router } from "expo-router";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 export default function App() {
   const [facing] = useState<CameraType>("back");
@@ -25,12 +28,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      {/* TOOD : Fix camera behavior when going to previous page then back to camera */}
+
       <CameraView style={styles.camera} facing={facing}></CameraView>
+
       <View style={{ flex: 1 }}>
         <Text style={styles.message}>
           Assurez-vous que le QR Code soit dans le champ et bien visible
         </Text>
       </View>
+      <ActionButton text="Retour" onPress={() => router.navigate("./page")} />
+      <IconActionButton
+        text="Retour"
+        onPress={() => router.navigate("./page")}
+        icon="arrow-left"
+      />
     </View>
   );
 }
@@ -47,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingBottom: 10,
     fontWeight: "semibold",
-    fontSize: 18,
+    fontSize: 20,
   },
   camera: {
     flex: 1,
