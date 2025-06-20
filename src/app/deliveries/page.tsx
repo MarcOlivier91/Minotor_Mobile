@@ -15,7 +15,7 @@ export default function MainMenu() {
   return (
     <SafeAreaProvider>
       <ScrollView>
-        <View style={styles.inputContainer}>
+        <View style={styles.buttonContainer}>
           <MaterialCommunityIcons name="plus" size={24} color={"#fff"} />
           <TouchableOpacity onPress={() => router.navigate("./newDelivery")}>
             <Text style={styles.newDeliveryText}>Nouvelle Livraison</Text>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  inputContainer: {
+  buttonContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
