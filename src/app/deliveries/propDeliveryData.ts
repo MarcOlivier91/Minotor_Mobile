@@ -11,7 +11,7 @@ const LivraisonDetailsData: LivraisonDetails[] = [
   {
     id: "2",
     deliveryId: "98154",
-    entreprise: "Niskalash",
+    entreprise: "Boulangerie du Parc",
     addresse: {
       nomVoie: "2 Rue du Champtier du Coq",
       codePostal: 91000,

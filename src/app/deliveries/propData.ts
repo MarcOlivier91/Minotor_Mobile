@@ -10,7 +10,7 @@ const LivraisonData: Livraison[] = [
   {
     id: "1",
     deliveryId: "12345",
-    entreprise: "MarCompany",
+    entreprise: "Carrefour",
     status: "Livrée",
     date: "12-12-2023",
   },
@@ -18,7 +18,7 @@ const LivraisonData: Livraison[] = [
   {
     id: "2",
     deliveryId: "98154",
-    entreprise: "Wassimacaron",
+    entreprise: "Les Frères Boulangers",
     status: "Annulée",
     date: "5-2-2023",
   },
@@ -26,7 +26,7 @@ const LivraisonData: Livraison[] = [
   {
     id: "4",
     deliveryId: "98014",
-    entreprise: "NewCompany",
+    entreprise: "Moulin du Paiou",
     status: "Livrée",
     date: "5-2-2023",
   },
@@ -34,7 +34,7 @@ const LivraisonData: Livraison[] = [
   {
     id: "3",
     deliveryId: "98154",
-    entreprise: "AlgerianCompany",
+    entreprise: "Boulangerie de la Gare",
     status: "Annulée",
     date: "8-7-2023",
   },

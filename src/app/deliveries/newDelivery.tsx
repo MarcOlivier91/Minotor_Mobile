@@ -15,7 +15,6 @@ export default function App() {
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet.
     return (
       <View style={styles.container}>
         <Text style={styles.message}>
@@ -28,19 +27,13 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* TOOD : Fix camera behavior when going to previous page then back to camera */}
       <CameraView style={styles.camera} facing={facing}></CameraView>
       <View style={{ flex: 1 }}>
         <Text style={styles.message}>
           Assurez-vous que le QR Code soit dans le champ et bien visible
         </Text>
       </View>
-      {/* TODO : Fix so the qr code scan takes it to the next page*/}
-      <ActionButton
-        text="Go to next page"
-        onPress={() => router.navigate("./deliveryDetails")}
-      />{" "}
-      <ActionButton text="Retour" onPress={() => router.navigate("./page")} />
+
       <IconActionButton
         text="Retour"
         onPress={() => router.navigate("./page")}
