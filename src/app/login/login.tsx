@@ -1,30 +1,72 @@
-import React, { useState } from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import ActionButton from "@/src/components/ActionButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import bcrypt from "bcryptjs";
+import { router } from "expo-router";
+import { useState } from "react";
 import {
+  Alert,
+  KeyboardAvoidingView,
+  StyleSheet,
   Text,
   TextInput,
-  StyleSheet,
-  KeyboardAvoidingView,
   TouchableOpacity,
   View,
 } from "react-native";
-import { router } from "expo-router";
-import ActionButton from "@/src/components/ActionButton";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+interface User {
+  username: string;
+  password: string;
+}
+
+async function checkAuth(username: string, password: string): Promise<boolean> {
+  try {
+    const response = await fetch(
+      `http://192.168.x.x:8000/api/users?username=${username}`
+    );
+
+    if (!response.ok) {
+      return false;
+    }
+
+    const usersArray: User[] = await response.json();
+
+    for (let userObj of usersArray) {
+      const storedUsername = userObj.username;
+      let storedHashedPassword = userObj.password;
+      storedHashedPassword = storedHashedPassword.replace(/^\$2b\$/, "$2a$");
+
+      if (
+        storedUsername === username &&
+        bcrypt.compareSync(password, storedHashedPassword)
+      ) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
 
 export default function Login() {
-  // State variable to hold the password
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const [username, setUsername] = useState("");
-  // State variable to hold the username
-
-  // State variable to track password visibility
-  const [showPassword, setShowPassword] = useState(false);
-
-  // Function to toggle the password visibility state
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleLogin = async () => {
+    const isValid = await checkAuth(username, password);
+    if (isValid) {
+      router.navigate("../deliveries/page");
+    } else {
+      Alert.alert("Erreur", "Nom d’utilisateur ou mot de passe incorrect");
+    }
   };
 
   return (
@@ -62,10 +104,7 @@ export default function Login() {
           />
         </View>
 
-        <ActionButton
-          text="Se Connecter"
-          onPress={() => router.navigate("../deliveries/page")}
-        />
+        <ActionButton text="Se Connecter" onPress={handleLogin} />
 
         <TouchableOpacity
           onPress={() => router.navigate("./forgottenPassword")}
@@ -102,14 +141,12 @@ const styles = StyleSheet.create({
     width: "50%",
     alignSelf: "center",
   },
-
   textButton: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
   },
-
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -122,8 +159,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     marginBottom: 20,
   },
-
   textInput: {
     fontSize: 16,
+    flex: 1, 
   },
 });
