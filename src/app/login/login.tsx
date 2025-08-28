@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
@@ -8,23 +9,45 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   View,
+  Alert,
 } from "react-native";
 import { router } from "expo-router";
 import ActionButton from "@/src/components/ActionButton";
 
 export default function Login() {
-  // State variable to hold the password
   const [password, setPassword] = useState("");
 
-  const [username, setUsername] = useState("");
-  // State variable to hold the username
+  const [email, setEmail] = useState("");
 
-  // State variable to track password visibility
   const [showPassword, setShowPassword] = useState(false);
 
-  // Function to toggle the password visibility state
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+  const LOGIN_ENDPOINT = "http://172.20.10.7:8000/api/client/connexion";
+
+  const handleLogin = () => {
+    console.log(email, password);
+    axios
+      .post(LOGIN_ENDPOINT, {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        // Handle successful login
+        console.log("Login successful", response.data);
+        router.navigate("../deliveries/page");
+        // Navigate to your app's main screen or set authentication state
+      })
+      .catch((error) => {
+        // Handle login error
+        console.log(error.message);
+        console.error("Login failed", error.response);
+        Alert.alert(
+          "Authentification échouée",
+          "Vérifiez vos identifiants et réessayez.",
+        );
+      });
   };
 
   return (
@@ -38,9 +61,9 @@ export default function Login() {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.textInput}
-            placeholder="Pseudonyme"
-            value={username}
-            onChangeText={setUsername}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
             autoCapitalize="none"
           />
         </View>
@@ -62,10 +85,7 @@ export default function Login() {
           />
         </View>
 
-        <ActionButton
-          text="Se Connecter"
-          onPress={() => router.navigate("../deliveries/page")}
-        />
+        <ActionButton text="Se Connecter" onPress={() => handleLogin()} />
 
         <TouchableOpacity
           onPress={() => router.navigate("./forgottenPassword")}

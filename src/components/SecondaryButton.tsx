@@ -12,10 +12,7 @@ export default function SecondaryButton({
   onPress,
 }: SecondaryButtonProps) {
   return (
-    <TouchableOpacity
-      style={styles.loginButton}
-      onPress={onPress ? onPress : () => router.navigate("./register/register")}
-    >
+    <TouchableOpacity style={styles.loginButton}>
       <Text style={styles.textButton}>{text}</Text>
     </TouchableOpacity>
   );

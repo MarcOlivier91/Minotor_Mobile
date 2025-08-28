@@ -18,10 +18,7 @@ export default function Index() {
         text="Se Connecter"
         onPress={() => router.navigate("./login/login")}
       />
-      <SecondaryButton
-        text="Créer un compte"
-        onPress={() => router.navigate("./register/register")}
-      />
+      <SecondaryButton text="Créer un compte" />
     </SafeAreaProvider>
   );
 }
